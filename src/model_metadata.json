@@ -1,0 +1,89 @@
+{
+  "version": "2.0_expanded",
+  "trained_at": "2026-04-27T03:22:37.458156Z",
+  "data_source": "cirrhosis.csv only",
+  "original_samples": 312,
+  "synthetic_expansion": "3x (3 synthetic per real sample)",
+  "total_training_samples": 1248,
+  "features": [
+    "Age",
+    "Bilirubin",
+    "Albumin",
+    "SGOT",
+    "Bilirubin_Albumin_ratio",
+    "Age_SGOT",
+    "Albumin_SGOT"
+  ],
+  "target": "Stage",
+  "best_model": "StackingEnsemble",
+  "results": {
+    "RandomForest": {
+      "test_accuracy": 0.96,
+      "test_f1": 0.960199678613343,
+      "cv_mean": 0.9048341708542713,
+      "cv_std": 0.016325600732029284
+    },
+    "GradientBoosting": {
+      "test_accuracy": 0.936,
+      "test_f1": 0.9352489146203786,
+      "cv_mean": 0.8687738693467336,
+      "cv_std": 0.04081588621184651
+    },
+    "SVM": {
+      "test_accuracy": 0.764,
+      "test_f1": 0.7683820953581557,
+      "cv_mean": 0.6984422110552765,
+      "cv_std": 0.018662148887953197
+    },
+    "KNN": {
+      "test_accuracy": 0.976,
+      "test_f1": 0.9759215811929777,
+      "cv_mean": 0.9118743718592965,
+      "cv_std": 0.026863673014972427
+    },
+    "StackingEnsemble": {
+      "test_accuracy": 0.984,
+      "test_f1": 0.9840396223265542,
+      "cv_mean": 0.9268643216080402,
+      "cv_std": 0.018015558259053988
+    },
+    "VotingEnsemble": {
+      "test_accuracy": 0.952,
+      "test_f1": 0.9520291560102302,
+      "cv_mean": 0.9008643216080403,
+      "cv_std": 0.039566463867819444
+    }
+  },
+  "outlier_caps": {
+    "Bilirubin": {
+      "capped_count": 30,
+      "lower_cap": 0.1,
+      "upper_cap": 7.3625
+    },
+    "Albumin": {
+      "capped_count": 11,
+      "lower_cap": 2.575,
+      "upper_cap": 4.534999999999999
+    },
+    "SGOT": {
+      "capped_count": 7,
+      "lower_cap": 5.0,
+      "upper_cap": 258.85
+    },
+    "Bilirubin_Albumin_ratio": {
+      "capped_count": 20,
+      "lower_cap": -0.983283115642731,
+      "upper_cap": 2.2358311463723175
+    },
+    "Age_SGOT": {
+      "capped_count": 7,
+      "lower_cap": -976.5684804928114,
+      "upper_cap": 12633.829055441476
+    },
+    "Albumin_SGOT": {
+      "capped_count": 5,
+      "lower_cap": -67.01521874999986,
+      "upper_cap": 871.7810312499998
+    }
+  }
+}
